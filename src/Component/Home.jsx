@@ -1,9 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../public/Gv1Bwts4cg.json";
+import LoadingSpinner from "./LoadingSpinner";
 const Home = () => {
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
   return (
     <div className="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl mt-20 grid md:grid-cols-2 sm:grid-cols-1 gap-4 ps-5">
       <div className="my-auto py-16">
